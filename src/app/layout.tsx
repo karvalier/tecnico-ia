@@ -1,6 +1,14 @@
-import './globals.css'
+"use client"
+import { useState } from "react"
+import Navbar from '@/components/Navbar'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Sidebar from '@/components/Sidebar'
+
+import './globals.css'
+import React from 'react'
+import { Provider } from "react-redux"
+import store from "@/store/store"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,9 +22,19 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body >
+      <Provider store={store}>
+        <Navbar  />
+        <div className="w-full flex " style={{alignItems: 'stretch'}}>
+        <Sidebar  />
+        {children}
+      
+        </div>
+      </Provider>
+      </body>
     </html>
   )
 }

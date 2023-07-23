@@ -18,10 +18,43 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #f8fafc;
+  min-height: 600px;
+}
+
+html{
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+.content-messages{
+  height: calc(100% - 150px);
+}
+
+.close {
+  width: 0px !important;
+  overflow: hidden;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fbefe5;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ffba89;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #F97316;
 }
