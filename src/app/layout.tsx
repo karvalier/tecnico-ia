@@ -1,14 +1,11 @@
 "use client"
 import Navbar from '@/components/Navbar'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import Sidebar from '@/components/Sidebar'
 import React from 'react'
 import { Provider } from "react-redux"
 import store from "@/store/store"
 import './globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
