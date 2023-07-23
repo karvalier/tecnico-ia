@@ -26,7 +26,7 @@ export default function RootLayout({
       <body >
       <Provider store={store}>
         <Navbar  />
-        <div className="w-full flex " style={{alignItems: 'stretch'}}>
+        <div className="w-full flex items-stretch" >
         <Sidebar  />
         {children}
       
