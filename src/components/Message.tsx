@@ -6,6 +6,11 @@ interface MessageProps {
 }
 
 const Message : React.FC<MessageProps> = ({name, hora, text, type}) => {
+  const returnDate = () => {
+    var dateMessage = new Date(hora).toLocaleString().split(",")[0]; 
+    var dateActual = new Date().toLocaleString().split(",")[0];
+    return dateMessage === dateActual ? new Date(hora).toLocaleTimeString('en-US'): new Date(hora).toLocaleString('en-US')
+  }
   return (
     <div className='px-5 py-2.5'>
       <div className='bg-white pt-5 rounded-lg shadow-sm	'>
@@ -14,7 +19,7 @@ const Message : React.FC<MessageProps> = ({name, hora, text, type}) => {
             {name}
           </div>
           <div>
-            {hora}
+            {returnDate()}
           </div>
         </div>
         <div className=' font-normal p-5 border-b'>{text}</div>

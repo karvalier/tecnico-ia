@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import Sidebar from '@/components/Sidebar'
 import React from 'react'
 import { Provider } from "react-redux"
-import store from "@/store/store"
+import { store } from "../store/store";
 import './globals.css'
 
 export default function RootLayout({

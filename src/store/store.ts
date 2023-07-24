@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import sidebarSlice from './sidebar.state';
+import chatState from './chat.state';
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
-    sidebar: sidebarSlice.reducer, // Utiliza el reducer del slice
+    sidebar: sidebarSlice.reducer, 
+    chats: chatState.reducer
   },
 });
 
-export default store;
+export type StoreType = ReturnType<typeof store.getState>;

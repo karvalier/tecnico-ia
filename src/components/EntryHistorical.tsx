@@ -6,25 +6,30 @@ import DeleteChatSVG from '../statics/images/delete-chat.svg'
 interface EntryHistoricalProps {
     description: string;
     hora: string;
+    onDelete: () => void;
+    onApply: () => void;
   }
   
-  const EntryHistorical : React.FC<EntryHistoricalProps> = ({description, hora }) => {
+  const EntryHistorical : React.FC<EntryHistoricalProps> = ({description, hora, onDelete, onApply }) => {
+    const formHora = new Date(hora).toDateString();
     return (
       <div className='flex items-center h-[61px] box-border py-4 px-6 mb-4 rounded hover:bg-orange-200'>
-        <div className='mr-4'>
-          <Image
-            src={EntryChatSVG}
-            alt="entry chat"
-            width={35}
-            height={35}
-          />
-        </div>
-        <div>
-            <div className='font-medium'>{description}</div>
-            <div className='text-sm opacity-75'>{hora}</div>
+        <div className='flex items-center' onClick={() => onApply()} >
+          <div className='mr-4'>
+            <Image
+              src={EntryChatSVG}
+              alt="entry chat"
+              width={35}
+              height={35}
+            />
+          </div>
+          <div>
+              <div className='font-medium'>{description.slice(0, 30)}</div>
+              <div className='text-sm opacity-75'>{formHora}</div>
+          </div>
         </div>
         <div className='ml-auto flex'>
-          <button>
+          <button onClick={() => onDelete()}>
             <Image
               src={DeleteChatSVG}
               alt="entry chat"
